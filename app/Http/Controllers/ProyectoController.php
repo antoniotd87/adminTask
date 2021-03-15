@@ -14,7 +14,8 @@ class ProyectoController extends Controller
      */
     public function index()
     {
-        //
+        $proyectos = Proyecto::all();
+        return view('proyectos.index', compact('proyectos'));
     }
 
     /**
@@ -40,7 +41,7 @@ class ProyectoController extends Controller
             'nombre' => 'required'
         ]);
         $proyecto = Proyecto::create($data);
-        return redirect()->action([ProyectoController::class, 'create']);
+        return redirect()->action([ProyectoController::class, 'index']);
     }
 
     /**
@@ -51,7 +52,8 @@ class ProyectoController extends Controller
      */
     public function show(Proyecto $proyecto)
     {
-        //
+        $proyectos = Proyecto::all();
+        return view('proyectos.show', compact('proyecto', 'proyectos'));
     }
 
     /**
@@ -62,7 +64,8 @@ class ProyectoController extends Controller
      */
     public function edit(Proyecto $proyecto)
     {
-        //
+        $proyectos = Proyecto::all();
+        return view('proyectos.edit', compact('proyecto', 'proyectos'));
     }
 
     /**
@@ -74,7 +77,12 @@ class ProyectoController extends Controller
      */
     public function update(Request $request, Proyecto $proyecto)
     {
-        //
+        $data = $request->validate([
+            'nombre' => 'required'
+        ]);
+        $proyecto->nombre = $data['nombre'];
+        $proyecto->save();
+        return redirect()->action([ProyectoController::class, 'index']);
     }
 
     /**
@@ -85,6 +93,7 @@ class ProyectoController extends Controller
      */
     public function destroy(Proyecto $proyecto)
     {
-        //
+        $proyecto->delete();
+        return response()->json('El proyecto ha sido eliminado');
     }
 }

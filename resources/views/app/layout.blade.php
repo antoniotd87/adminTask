@@ -12,7 +12,7 @@
 </head>
 
 <body class="h-full flex flex-col">
-    <header class="bg-green-600 flex justify-between text-white">
+    <header class="bg-green-600 flex justify-between text-white h-14">
         <p class="m-4 font-bold text-xl">
             UpTask -- Administrador de Proyectos
         </p>
@@ -20,10 +20,10 @@
             Cerrar Sesion
         </p>
     </header>
-    <main class="flex h-full">
-        <aside class="w-1/5 bg-green-500 h-auto">
+    <main class="flex h-screen">
+        <aside class="w-1/5 bg-green-500 h-full">
             <div class="mx-6 my-8 text-center">
-                <a href="" class="bg-blue-500 text-white px-6 py-4 rounded text-sm font-bold">Agregar Proyecto <span
+                <a href="{{ route('proyectos.create') }}" class="bg-blue-500 text-white px-6 py-4 rounded text-sm font-bold">Agregar Proyecto <span
                         class="text-xl">+</span> </a>
             </div>
             <div class="text-center">
@@ -31,7 +31,7 @@
                 <ul class="text-left mx-7 text-lg text-white">
                     @foreach ($proyectos as $proyecto)
                         <li>
-                            <a href="" class="">{{$proyecto->nombre}}</a>
+                            <a href="{{ route('proyectos.show', ['proyecto'=>$proyecto->id]) }}" class="">{{$proyecto->nombre}}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -41,6 +41,7 @@
             @yield('content')
         </div>
     </main>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
