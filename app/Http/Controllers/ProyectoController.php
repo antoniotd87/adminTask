@@ -53,7 +53,8 @@ class ProyectoController extends Controller
     public function show(Proyecto $proyecto)
     {
         $proyectos = Proyecto::all();
-        return view('proyectos.show', compact('proyecto', 'proyectos'));
+        $tareas = $proyecto->tareas;
+        return view('proyectos.show', compact('proyecto', 'proyectos','tareas'));
     }
 
     /**

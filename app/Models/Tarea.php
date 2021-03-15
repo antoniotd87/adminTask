@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Proyecto extends Model
+class Tarea extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'nombre'
+        'tarea'
     ];
-    public function tareas()
+
+    public function proyecto()
     {
-        return $this->hasMany(Tarea::class);
+        return $this->belongsTo(Proyecto::class);
     }
 }

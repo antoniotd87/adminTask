@@ -1,11 +1,6 @@
 const { default: axios } = require('axios')
 const Swal = require('sweetalert2')
 
-// Swal.fire(
-//     'Good job!',
-//     'You clicked the button!',
-//     'success'
-//   )
 const proyectoUrl = document.querySelector('#eliminar-proyecto')
 
 if (proyectoUrl) {

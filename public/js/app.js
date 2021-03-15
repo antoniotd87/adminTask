@@ -1843,12 +1843,7 @@ module.exports = {
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
     axios = _require["default"];
 
-var Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js"); // Swal.fire(
-//     'Good job!',
-//     'You clicked the button!',
-//     'success'
-//   )
-
+var Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 
 var proyectoUrl = document.querySelector('#eliminar-proyecto');
 
